@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #my-block{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        #my-block2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div id="root1">
+    <div id="my-block"></div>
+    <div id="my-block2"></div>
+</div>
+<script>
+    setTimeout(()=>{
+        // let root = document.getElementById("root1");
+        // let span = document.createElement("span");
+        // span.textContent = "你好";
+        // root.appendChild(span);
+
+        let myBlock = document.getElementById("my-block");
+        myBlock.style.height = "500px";
+        // myBlock.style.transform = "scaleY(5)";
+        // myBlock.style.zIndex = "5";
+        // myBlock.offsetWidth = 500
+    },5000);
+
+
+</script>
+</body>
+</html>
