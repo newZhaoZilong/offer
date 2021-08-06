@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var channel = new MessageChannel();
+    var port = channel.port2;
+    channel.port1.onmessage = (res)=>{
+        debugger;
+        console.log(res.data);
+    };
+    port.postMessage("haha");
+</script>
+</body>
+</html>
