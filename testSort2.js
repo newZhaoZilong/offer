@@ -29,7 +29,7 @@ function partition(arr,startIdx,endIdx){
             arr[right] = temp;
         }
     }
-    //调整完毕后，调整pivot的位置
+    //调整完毕后，将pivot和left交换，这样pivot的左边全是比自己小的，右边全是比自己大的
     arr[startIdx] = arr[left];
     arr[left] = pivot;
     return left;
