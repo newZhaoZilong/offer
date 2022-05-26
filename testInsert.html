@@ -18,16 +18,28 @@
     //     father.insertBefore(span1,span3.nextSibling);
     // },5000);
 
-    function f1() {
-        function f2() {
-            let c = 7;
-            console.log(b);
-        }
-        f2();
-        let b = 8;
-    }
+    const { port1, port2 } = new MessageChannel();
+port1.onmessage = function (event) {
+   
+  console.log('收到来自port2的消息：', event.data); // 收到来自port2的消息： pong
+};
+port2.onmessage = function (event) {
+    let channelRun = function(){
+        console.log('channelRun');
+    };
+    channelRun();
+  console.log('收到来自port1的消息：', event.data); // 收到来自port1的消息： ping
+  port2.postMessage('pong');
+};
+setTimeout(()=>{
+    console.log('setTimeout');
+},0);
+port1.postMessage('ping');
+console.log('haha');
+Promise.resolve().then((res)=>{
+    console.log('promise');
+});
 
-    f1();
 </script>
 </body>
 </html>

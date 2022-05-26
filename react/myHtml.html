@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- 引入babel,用于将jsx转为js -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="./myReact.js"></script>
+    <!-- 生产环境中不建议使用 此处一定要写text/babel,这样能被babel.min.js识别，然后编译成js -->
+    <script type="text/babel">
+        /** @jsx Didact.createElement */
+        function Counter() {
+            const [state,setState] = Didact.useState(1);
+            return (
+                <h1 onClick={()=>setState(c=>c+1)}>
+                    Count: {state}    
+                </h1>
+            );
+        }
+        
+        const element = <Counter />;
+        const container = document.getElementById("root");
+        Didact.render(element, container);
+    </script>
+</body>
+
+</html>
